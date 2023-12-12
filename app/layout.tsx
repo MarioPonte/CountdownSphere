@@ -3,7 +3,7 @@ import { PT_Sans } from 'next/font/google'
 import './globals.css'
 
 const ptSans = PT_Sans({
-  weight: ['400'],
+  weight: ['400','700'],
   subsets: ['latin'],
 })
 
