@@ -4,6 +4,7 @@ import { differenceInMilliseconds, intervalToDuration } from "date-fns";
 import { useEffect, useState } from "react";
 import CountdownInfo from "./components/CountdownInfo";
 import Countdown from "./components/Countdown";
+import { BiFullscreen } from "react-icons/bi";
 
 export default function Home() {
 
@@ -45,7 +46,7 @@ export default function Home() {
       <div className='text-center text-white h-screen flex flex-col justify-center items-center'>
         <CountdownInfo/>
         <Countdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} />
-        <button onClick={toggleFullscreen}>FullScreen</button>
+        <button className="absolute bottom-12" onClick={toggleFullscreen}><BiFullscreen className="fill-neutral-400 hover:fill-white" size={30} /></button>
       </div>
     </section>
   )
