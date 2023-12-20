@@ -4,7 +4,7 @@ import { differenceInMilliseconds, intervalToDuration } from "date-fns";
 import { useEffect, useState } from "react";
 import CountdownInfo from "./components/CountdownInfo";
 import Countdown from "./components/Countdown";
-import { BiFullscreen } from "react-icons/bi";
+import FullscreenBtn from "./components/FullscreenBtn";
 
 export default function Home() {
 
@@ -31,22 +31,12 @@ export default function Home() {
     return () => clearInterval(countdownInterval);
   }, []);
 
-  const toggleFullscreen = () => {
-    const countdownElement = document.getElementById("countdownContainer");
-    const isFullscreen = document.fullscreenElement;
-    if(!isFullscreen){
-      countdownElement?.requestFullscreen();
-    }else{
-      document.exitFullscreen();
-    }
-  }
-
   return (
     <section id="countdownContainer" className="bg-black bg-[linear-gradient(to_bottom,rgba(23,37,84,0.6),rgba(66,32,6,0.6)),url('/images/background.png')] bg-cover bg-center">
       <div className='text-center text-white h-screen flex flex-col justify-center items-center'>
         <CountdownInfo/>
         <Countdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} />
-        <button className="absolute bottom-12" onClick={toggleFullscreen}><BiFullscreen className="fill-neutral-400 hover:fill-white" size={30} /></button>
+        <FullscreenBtn/>
       </div>
     </section>
   )
