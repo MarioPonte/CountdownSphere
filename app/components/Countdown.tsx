@@ -1,10 +1,10 @@
 "use client";
 
 interface CountdownProps {
-    days: any;
-    hours: any;
-    minutes: any;
-    seconds: any;
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
 }
 
 const Countdown: React.FC<CountdownProps> = ({
@@ -16,7 +16,7 @@ const Countdown: React.FC<CountdownProps> = ({
 
     return (
         <div className="flex mt-10">
-            <div className="w-20 sm:w-28 md:w-48 lg:w-64">
+            <div className={`${days === 0 && "hidden"} w-20 sm:w-28 md:w-48 lg:w-64`}>
                 <div className="text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold">
                     {days}
                 </div>
@@ -25,7 +25,7 @@ const Countdown: React.FC<CountdownProps> = ({
                 </div>
             </div>
 
-            <div className="w-20 sm:w-28 md:w-48 lg:w-64">
+            <div className={`${(days === 0 && hours === 0) && "hidden"} w-20 sm:w-28 md:w-48 lg:w-64`}>
                 <div className="text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold">
                     {hours}
                 </div>
@@ -34,7 +34,7 @@ const Countdown: React.FC<CountdownProps> = ({
                 </div>
             </div>
 
-            <div className="w-20 sm:w-28 md:w-48 lg:w-64">
+            <div className={`${(days === 0 && hours === 0 && minutes === 0) && "hidden"} w-20 sm:w-28 md:w-48 lg:w-64`}>
                 <div className="text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold">
                     {minutes}
                 </div>
@@ -43,13 +43,17 @@ const Countdown: React.FC<CountdownProps> = ({
                 </div>
             </div>
 
-            <div className="w-20 sm:w-28 md:w-48 lg:w-64">
+            <div className={`${(days === 0 && hours === 0 && minutes === 0 && seconds === 0) && "hidden"} w-20 sm:w-28 md:w-48 lg:w-64`}>
                 <div className="text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold">
                     {seconds}
                 </div>
                 <div className="text-sm sm:text-xl md:text-2xl lg:text-4xl uppercase tracking-wide">
                     Seconds
                 </div>
+            </div>
+
+            <div className={`${(days === 0 && hours === 0 && minutes === 0 && seconds === 0) ? "" : "hidden"} text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold`}>
+                Happy New Year!
             </div>
         </div>
     )
