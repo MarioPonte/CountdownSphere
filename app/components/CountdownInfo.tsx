@@ -1,12 +1,22 @@
-export default function CountdownInfo() {
+interface CountdownInfoProps {
+    subtitle: string;
+    title: string;
+}
+
+const CountdownInfo:React.FC<CountdownInfoProps> = ({
+    subtitle,
+    title
+}) => {
     return (
         <>
             <div className="text-4xl">
-                Countdown for the arriving of
+                {subtitle}
             </div>
             <div className="text-6xl font-bold">
-                2024
+                {title}
             </div>
         </>
     )
 }
+
+export default CountdownInfo;

@@ -1,6 +1,6 @@
 "use client";
 
-import { differenceInMilliseconds, intervalToDuration } from "date-fns";
+import { differenceInMilliseconds, format, intervalToDuration } from "date-fns";
 import { useEffect, useState } from "react";
 import CountdownInfo from "./components/CountdownInfo";
 import Countdown from "./components/Countdown";
@@ -31,10 +31,12 @@ export default function Home() {
     return () => clearInterval(countdownInterval);
   }, []);
 
+  const year = new Date();
+
   return (
     <section id="countdownContainer" className="bg-black bg-[linear-gradient(to_bottom,rgba(23,37,84,0.6),rgba(66,32,6,0.6)),url('/images/background.png')] bg-cover bg-center">
       <div className='text-center text-white h-screen flex flex-col justify-center items-center'>
-        <CountdownInfo/>
+        <CountdownInfo subtitle="Countdown for the New Year" title={(parseInt(format(year,"yyyy")) + 1).toString()}/>
         <Countdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} />
         <FullscreenBtn/>
       </div>
