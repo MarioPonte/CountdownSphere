@@ -1,6 +1,6 @@
 "use client";
 
-import { differenceInMilliseconds, format, intervalToDuration } from "date-fns";
+import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import CountdownInfo from "./components/CountdownInfo";
 import Countdown from "./components/Countdown";
@@ -13,18 +13,20 @@ export default function Home() {
   useEffect(() => {
     const countdownInterval = setInterval(() => {
       const currentDate = new Date();
-      const nextYear = new Date(currentDate.getFullYear() + 1, 0, 1, 0, 0, 0);
-      const difference = differenceInMilliseconds(nextYear, currentDate);
-      const duration = intervalToDuration({ start: 0, end: difference });
-      const { days, hours, minutes, seconds } = duration;
+      const targetDate = new Date(`01/01/${currentDate.getFullYear() + 1} 00:00:00`);
+      const difference = targetDate.getTime() - currentDate.getTime();
 
-      const countdownArray: any = [days, hours, minutes, seconds];
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+      const countdownArray: any = [d, h, m, s];
       setCountdown(countdownArray);
 
       // Check if the year changes
       if (countdownArray.every((value: any) => value === 0)) {
         clearInterval(countdownInterval); // Stop interval
-        console.log('Happy New Year!');
       }
     }, 1000);
 
