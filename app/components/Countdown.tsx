@@ -5,14 +5,10 @@ interface CountdownProps {
     hours: number;
     minutes: number;
     seconds: number;
+    message: string;
 }
 
-const Countdown: React.FC<CountdownProps> = ({
-    days,
-    hours,
-    minutes,
-    seconds
-}) => {
+const Countdown: React.FC<CountdownProps> = ({ days, hours, minutes, seconds, message }) => {
 
     return (
         <div className="flex mt-10">
@@ -53,7 +49,7 @@ const Countdown: React.FC<CountdownProps> = ({
             </div>
 
             <div className={`${(days === 0 && hours === 0 && minutes === 0 && seconds === 0) ? "" : "hidden"} text-4xl sm:text-6xl md:text-6xl lg:text-9xl font-bold`}>
-                Happy New Year!
+                {message}
             </div>
         </div>
     )

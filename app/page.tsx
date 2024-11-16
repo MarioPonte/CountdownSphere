@@ -39,7 +39,7 @@ export default function Home() {
     <section id="countdownContainer" className="bg-black bg-[linear-gradient(to_bottom,rgba(23,37,84,0.6),rgba(66,32,6,0.6)),url('/images/background.png')] bg-cover bg-center">
       <div className='text-center text-white h-screen flex flex-col justify-center items-center'>
         <CountdownInfo subtitle="Countdown for the New Year" title={(parseInt(format(year,"yyyy")) + 1).toString()}/>
-        <Countdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} />
+        <Countdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} message="Happy New Year!" />
         <FullscreenBtn/>
       </div>
     </section>
