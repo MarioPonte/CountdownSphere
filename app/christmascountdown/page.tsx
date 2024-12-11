@@ -1,12 +1,11 @@
 "use client";
 
-import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import CountdownInfo from "../components/CountdownInfo";
 import Countdown from "../components/Countdown";
 import FullscreenBtn from "../components/FullscreenBtn";
 
-export default function Home() {
+export default function Page() {
 
     const [countdown, setCountdown] = useState<number[]>([]);
 

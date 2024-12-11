@@ -9,8 +9,8 @@ const ptSans = PT_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'New Year Countdown',
-  description: 'New Year Countdown',
+  title: 'CountdownSphere',
+  description: 'CountdownSphere lets you track, create, and share countdowns for any event.',
 }
 
 export default function RootLayout({
