@@ -22,7 +22,7 @@ export function getNextChristmas(): Date {
     const currentYear = currentDate.getFullYear();
 
     // Define o Natal do ano atual
-    const targetDate = new Date(`${currentYear}-12-18T16:36:00`);
+    const targetDate = new Date(`${currentYear}-12-25T00:00:00`);
 
     // Se o Natal já passou, define o Natal do próximo ano
     if (currentDate > targetDate) targetDate.setFullYear(currentYear + 1);
