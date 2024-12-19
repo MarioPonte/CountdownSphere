@@ -5,33 +5,28 @@ import { useEffect, useState } from "react";
 import CountdownInfo from "../components/CountdownInfo";
 import Countdown from "../components/Countdown";
 import FullscreenBtn from "../components/FullscreenBtn";
+import { calculateCountdown, getNewYear } from "../counters";
 
 export default function Page() {
 
-  const [countdown, setCountdown] = useState([]);
-
-  useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      const currentDate = new Date();
-      const targetDate = new Date(`01/01/${currentDate.getFullYear() + 1} 00:00:00`);
-      const difference = targetDate.getTime() - currentDate.getTime();
-
-      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-      const countdownArray: any = [d, h, m, s];
-      setCountdown(countdownArray);
-
-      // Check if the year changes
-      if (countdownArray.every((value: any) => value === 0)) {
-        clearInterval(countdownInterval); // Stop interval
-      }
-    }, 1000);
-
-    return () => clearInterval(countdownInterval);
-  }, []);
+  const [countdown, setCountdown] = useState<number[]>([]);
+  
+      useEffect(() => {
+          const targetDate = getNewYear();
+  
+          const updateCountdown = () => {
+              const countdownValues = calculateCountdown(targetDate);
+              setCountdown(countdownValues);
+          };
+  
+          // Atualiza a contagem a cada segundo
+          const countdownInterval = setInterval(updateCountdown, 1000);
+  
+          // Inicializa o contador imediatamente
+          updateCountdown();
+  
+          return () => clearInterval(countdownInterval);
+      }, []);
 
   const year = new Date();
 

@@ -1,8 +1,7 @@
-// counters.ts
 export function calculateCountdown(targetDate: Date): number[] {
     const currentDate = new Date();
 
-    // Atualiza para o próximo ano, se o evento já passou
+    // Update for next year, if the event has already passed
     if (currentDate > targetDate) {
         targetDate.setFullYear(targetDate.getFullYear() + 1);
     }
@@ -21,11 +20,21 @@ export function getNextChristmas(): Date {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
 
-    // Define o Natal do ano atual
+    // Define Christmas for the current year
     const targetDate = new Date(`${currentYear}-12-25T00:00:00`);
 
-    // Se o Natal já passou, define o Natal do próximo ano
+    // If Christmas passed, define for the next year
     if (currentDate > targetDate) targetDate.setFullYear(currentYear + 1);
+
+    return targetDate;
+}
+
+export function getNewYear(): Date {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+
+    // Define New Year for the current year
+    const targetDate = new Date(`${currentYear+1}-01-01T00:00:00`);
 
     return targetDate;
 }
