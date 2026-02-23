@@ -6,9 +6,20 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../lib/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Countdown {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug          String   @unique
+  name          String
+  backgroundImg String
+  eventDate     DateTime
+  eventRepeat   Boolean
+  eventType     String
 }
