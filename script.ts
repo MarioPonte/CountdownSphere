@@ -4,10 +4,10 @@ async function main() {
     // Create a new user with a post
     const user = await prisma.countdown.create({
         data: {
-            slug: "testcountdown",
-            name: "Test Countdown",
-            backgroundImg: "testcountdown.png",
-            eventDate: new Date("2027-01-01T00:00:00Z"),
+            slug: "halloweenday",
+            name: "Halloween Day",
+            backgroundImg: "halloween.png",
+            eventDate: new Date("2027-10-31T00:00:00Z"),
             eventRepeat: false,
             eventType: "celebration"
         }
