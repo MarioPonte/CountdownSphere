@@ -11,7 +11,7 @@ export default async function Home() {
                 COUNTDOWNS OF DB
             </h1>
             <ol>
-                {countdowns.map((countdown) => (
+                {countdowns.map((countdown: any) => (
                     <li key={countdown.id} className="flex flex-col mb-2">
                         <span>{countdown.name}</span>
                         <span className="text-2xl">{countdown.eventDate.toString()}</span>
