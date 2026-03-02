@@ -4,15 +4,15 @@ async function main() {
     // Create a new user with a post
     const user = await prisma.countdown.create({
         data: {
-            slug: "test2",
-            name: "test2",
-            backgroundImg: "test2.png",
+            slug: "test3",
+            name: "test3",
+            backgroundImg: "test3.png",
             eventDate: new Date("2027-10-31T00:00:00Z"),
             eventRepeat: false,
             eventType: "celebration"
         }
     });
-    console.log("Created user:", user);
+    console.log("Created Countdown:", user);
 
     // Fetch all countdowns setted to not repeat
     const allCountdowns = await prisma.countdown.findMany({});

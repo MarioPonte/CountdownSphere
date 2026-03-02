@@ -50,21 +50,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
-
-
-      {/* TESTING COUNTDOWNS OF DB */}
-      <div className="mb-10">
-        <h1>
-          COUNTDOWNS OF DB
-        </h1>
-        <ol>
-          <li>Alice</li>
-          <li>Bob</li>
-        </ol>
-      </div>
-
-
-
+      
       <div className="flex flex-wrap gap-6">
         <CountdownCard name="Christmas Day" path="/christmascountdown" image={`christmas.webp`} gradient="linear-gradient(to bottom, rgba(90,18,0,0.6),rgba(66,47,6,0.6))">
           <div className="absolute bottom-2 text-center flex flex-col justify-center items-center">
