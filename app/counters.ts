@@ -38,3 +38,8 @@ export function getNewYear(): Date {
 
     return targetDate;
 }
+
+export function getCountdown(currentDate: Date): Date {
+    const targetDate = currentDate;
+    return targetDate;
+}

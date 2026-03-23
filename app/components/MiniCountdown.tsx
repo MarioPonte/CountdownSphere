@@ -5,7 +5,7 @@ interface CountdownProps {
     hours: number;
     minutes: number;
     seconds: number;
-    message: string;
+    message?: string;
 }
 
 const Countdown: React.FC<CountdownProps> = ({ days, hours, minutes, seconds, message }) => {
@@ -48,9 +48,11 @@ const Countdown: React.FC<CountdownProps> = ({ days, hours, minutes, seconds, me
                 </div>
             </div>
 
-            <div className={`${(days === 0 && hours === 0 && minutes === 0 && seconds === 0) ? "" : "hidden"} text-xl font-bold`}>
-                {message}
-            </div>
+            {message && (
+                <div className={`${(days === 0 && hours === 0 && minutes === 0 && seconds === 0) ? "" : "hidden"} text-xl font-bold`}>
+                    {message}
+                </div>
+            )}
         </div>
     )
 }
