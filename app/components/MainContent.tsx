@@ -52,7 +52,7 @@ const MainContent: React.FC<MainContentProps> = ({ data }) => {
             </div>
 
             <div className="flex flex-wrap gap-6">
-                <CountdownCard name={data[1].name} path="/newyearcountdown" image={`background.png`} gradient="linear-gradient(to bottom, rgba(23,37,84,0.6),rgba(66,32,6,0.6))">
+                <CountdownCard name={data[1].name} path="/newyearcountdown" image={data[1].backgroundImg} gradient="linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.8))">
                     <div className="absolute bottom-2 text-center flex flex-col justify-center items-center">
                         <MiniCountdown days={countdown[0]} hours={countdown[1]} minutes={countdown[2]} seconds={countdown[3]} />
                     </div>
